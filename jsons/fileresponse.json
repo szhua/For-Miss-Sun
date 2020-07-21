@@ -1,0 +1,16 @@
+{
+  "status": 100,
+  "message": "成功",
+  "data": {
+    "image-frames": 1,
+    "code": 200,
+    "image-width": 658,
+    "image-height": 688,
+    "mimetype": "image/png",
+    "time": 1595312342,
+    "image-type": "PNG",
+    "message": "ok",
+    "file_size": 95907,
+    "url": "/uploads/20200721/c8wvbov3jss6po2ty8uvcsoi8no52r4aWechatIMG1.png"
+  }
+}
