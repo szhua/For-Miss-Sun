@@ -18,6 +18,8 @@ class MyApp extends StatelessWidget {
             TextStyle(fontSize: 16.0, color: Colors.white, fontFamily: 'Lei'),
         child: MaterialApp(
           title: 'For Miss-Sun',
+          debugShowCheckedModeBanner: false,
+          showSemanticsDebugger: false,
           theme: ThemeData(
             primarySwatch: ColorUtil.createMaterialColor(Color(0xffffb6c1)),
             visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -25,8 +27,10 @@ class MyApp extends StatelessWidget {
           routes: <String, WidgetBuilder>{
             "add_diary": (context) => AddDiaryRoute(),
             'for_you_list':(context)=>ForYouListRoute(),
+            'homePage':(context)=>MyHomePage(title: 'For Miss-Sun'),
           },
-          home: MyHomePage(title: 'For Miss-Sun'),
+          home: SlogoRoute(),
+         // home: MyHomePage(title: 'For Miss-Sun'),
         ));
   }
 }

@@ -20,7 +20,7 @@ void  cancelToast() {
 
 
 void showLoading(context, [String text]) {
-  text = text ?? "Loading...";
+  text = text ?? "正在加载...";
   showDialog(
       barrierDismissible: true,
       context: context,
