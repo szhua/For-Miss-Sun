@@ -36,8 +36,7 @@ class AddDiaryState extends State<AddDiaryRoute> {
     showLoading(context);
     var fileResponse =  await YouPai(context) .uploadFile(_image);
     if(fileResponse.status ==100) {
-      String filePath = 'http://image-szhua.test.upcdn.net${fileResponse
-          .data['url']}';
+      String filePath = fileResponse.data;
       String content = contentEditController.text;
       var  diary = await BombApi(context).insertOneDiary(Diary()..content=content..dary_img=filePath);
       if(diary!=null){

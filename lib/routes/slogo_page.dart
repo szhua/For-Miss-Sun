@@ -10,13 +10,28 @@ class SlogoRoute extends StatefulWidget {
 
 
 class _SlogoRouteState extends State<SlogoRoute> {
+
+  var imgs = <String>[
+    'assets/imgs/day1.jpg',
+    'assets/imgs/day2.jpg',
+    'assets/imgs/day3.jpg',
+    'assets/imgs/day4.jpg',
+    'assets/imgs/day5.jpg',
+    'assets/imgs/day6.jpg',
+    'assets/imgs/day7.jpg',
+  ];
+
   
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3),(){
-      Navigator.of(context).pushNamed('homePage');
-    } );
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      var currentImage =imgs[DateTime.now().weekday-1];
+      precacheImage(AssetImage(currentImage), context);
+      Timer(Duration(seconds: 4),(){
+        Navigator.of(context).pushNamed('homePage');
+      } );
+    });
   }
   
   
@@ -29,7 +44,7 @@ class _SlogoRouteState extends State<SlogoRoute> {
           fit: StackFit.expand, //未定位widget占满Stack整个空间
           children: <Widget>[
             Image(
-                image: AssetImage('assets/imgs/foryou2.jpg'), fit: BoxFit.cover),
+                image: AssetImage(imgs[DateTime.now().weekday-1]), fit: BoxFit.cover),
             Positioned(
                 bottom: 0,
                 child: Container(

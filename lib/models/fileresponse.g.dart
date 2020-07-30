@@ -10,7 +10,7 @@ Fileresponse _$FileresponseFromJson(Map<String, dynamic> json) {
   return Fileresponse()
     ..status = json['status'] as num
     ..message = json['message'] as String
-    ..data = json['data'] as Map<String, dynamic>;
+    ..data = json['data'] as String;
 }
 
 Map<String, dynamic> _$FileresponseToJson(Fileresponse instance) =>
