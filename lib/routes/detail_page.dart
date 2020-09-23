@@ -5,14 +5,16 @@ import 'package:for_miss_sun/models/index.dart';
 import 'package:for_miss_sun/widgets/index.dart';
 import 'package:oktoast/oktoast.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
+class DetailPage extends StatefulWidget {
+  DetailPage({Key key,this.arguments=''}) : super(key: key){
+    print(this.arguments);
+  }
+  final   arguments;
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _DetailPageState createState() => _DetailPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _DetailPageState extends State<DetailPage> {
   void actionPress() {
     Navigator.of(context).pushNamed('for_you_list');
   }
@@ -33,7 +35,8 @@ class _MyHomePageState extends State<MyHomePage> {
 //    Future.delayed(Duration.zero,(){
 //      showLoading(context);
 //    });
-    latestOne = await BombApi(context).getLatestOne();
+    print(widget.arguments['objectId'].toString());
+   latestOne = await BombApi(context).getOne(widget.arguments['objectId']);
     setState(() {});
     //Navigator.of(context).pop();
   }
@@ -43,40 +46,23 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    bus.on('refreshHome', (arg) {
-      _getLatestOne();
-    });
+    print('wwwwwwwww');
+    print(widget.arguments);
+
   }
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(child:
-    Scaffold(
-        floatingActionButton: FloatingActionButton(
-          mini: true,
-          child: IconButton(
-            onPressed: navToAdd,
-            icon: Icon(Icons.keyboard,color: Colors.white,),
-          ),
-        ),
+    return Scaffold(
         appBar: MyAppBar(
-          widget.title,
+          'ForYou',
           leading: GestureDetector(
             onTap:(){},
             child: Text(''),
           ),
           centerTitle: true,
           actions: <Widget>[
-            GestureDetector(
-              onTap: actionPress,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 6,horizontal: 12),
-                child: Icon(
-                  Icons.library_books,
-                  color: Colors.white,
-                ),
-              ),
-            )
+
           ],
         ),
         body: SingleChildScrollView(
@@ -97,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               )),
-        )), onWillPop: existSystem);
+        ));
   }
 
   DateTime _lastPressedAt; //上次点击时间

@@ -54,6 +54,7 @@ class ForYouListRouteState extends State<ForYouListRoute>{
           child: buildBody(),
         ),
        floatingActionButton: FloatingActionButton(
+         mini: true,
           child: IconButton(onPressed: upTop, icon: Icon(Icons.arrow_upward,color: Colors.white,)),
        ),
     );

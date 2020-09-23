@@ -14,7 +14,7 @@ class DiaryItemState extends State<DiaryItem> {
 
 
   Widget buildImage(){
-   if(widget.diary.dary_img!=null&&!widget.diary.dary_img.isEmpty){
+   if(widget.diary.dary_img!=null&&widget.diary.dary_img.isNotEmpty){
      return Padding(padding:const EdgeInsets.all(10),child:
      Image(
        image: NetworkImage(
@@ -36,23 +36,28 @@ class DiaryItemState extends State<DiaryItem> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8),
-      child: Material(
-        color: Colors.white,
-        shape: BorderDirectional(
-          bottom: BorderSide(
-            color: Theme.of(context).dividerColor,
-            width: .5,
+    return InkWell(
+      onTap: (){
+        Navigator.of(context).pushNamed('detialPage',arguments: {'objectId':widget.diary.objectId});
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(top: 8),
+        child: Material(
+          color: Colors.white,
+          shape: BorderDirectional(
+            bottom: BorderSide(
+              color: Theme.of(context).dividerColor,
+              width: .5,
+            ),
           ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            children: <Widget>[
-              buildImage(),
-              Text(widget.diary.content,style: TextStyle(fontSize: 17,fontFamily: "Lei"),)
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              children: <Widget>[
+                buildImage(),
+                Text(widget.diary.content,style: TextStyle(fontSize: 17,fontFamily: "Lei"),)
+              ],
+            ),
           ),
         ),
       ),

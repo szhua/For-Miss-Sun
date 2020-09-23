@@ -33,6 +33,14 @@ class BombApi {
     });
     return Diary.fromJson(r.data);
   }
+
+  Future<Diary> getOne(String id ) async{
+    BmobQuery query =new BmobQuery();
+    var r = await query.queryObjectByTableName(id,'diary');
+    return Diary.fromJson(r);
+  }
+
+
   Future<Diary> getLatestOne() async{
      BmobQuery query =new BmobQuery();
      query.order='-createdAt';

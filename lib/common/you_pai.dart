@@ -8,8 +8,6 @@ import 'package:for_miss_sun/models/index.dart';
 
 class YouPai {
 
-
-
   YouPai([this.context]) {
     _options = Options(extra: {'context': context});
   }
@@ -23,7 +21,6 @@ class YouPai {
   }));
 
   static void init() {
-
 
   }
 
