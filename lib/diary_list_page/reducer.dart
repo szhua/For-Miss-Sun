@@ -27,5 +27,8 @@ DiaryListState _loadMore(DiaryListState state ,Action action){
   final DiaryListState newState = state.clone();
   List<DiaryItemState> diaries =action.payload??<DiaryItemState>[];
   newState.diaries.addAll(diaries);
+  if(diaries.isEmpty){
+    newState.hasMore =false;
+  }
   return newState ;
 }

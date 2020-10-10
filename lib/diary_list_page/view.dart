@@ -6,39 +6,52 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'action.dart';
 import 'state.dart';
 
-Widget buildView(DiaryListState state, Dispatch dispatch, ViewService viewService) {
-
+Widget buildView(
+    DiaryListState state, Dispatch dispatch, ViewService viewService) {
   ListAdapter adapter = viewService.buildAdapter();
-  Widget buildBody(){
-    return  SmartRefresher(
+  Widget buildBody() {
+    return SmartRefresher(
       enablePullDown: true,
       enablePullUp: true,
       controller: state.refreshController,
-      header: WaterDropMaterialHeader(),
-      onRefresh: (){
+      header: MaterialClassicHeader(),
+      onRefresh: () {
         dispatch(DiaryListActionCreator.onRefresh());
       },
-      onLoading:(){
+      onLoading: () {
         dispatch(DiaryListActionCreator.onLoadMore());
       },
-      child: ListView.builder(itemBuilder: adapter.itemBuilder,itemCount: adapter.itemCount,controller: state.scrollController,),
+      child: ListView.builder(
+        itemBuilder: adapter.itemBuilder,
+        itemCount: adapter.itemCount,
+        controller: state.scrollController,
+      ),
       footer: ClassicFooter(),
     );
   }
 
   return Scaffold(
-    appBar: MyAppBar('Diaries',leading: GestureDetector(
-      onTap:()=>{},
-      child: Icon(Icons.arrow_back_ios),
-    ),),
+    appBar: MyAppBar(
+      'Diaries',
+      leading: GestureDetector(
+        onTap: ()  {Navigator.of(viewService.context).pop();},
+        child: Icon(Icons.arrow_back_ios),
+      ),
+    ),
     body: Center(
       child: buildBody(),
     ),
     floatingActionButton: FloatingActionButton(
       mini: true,
-      child: IconButton(onPressed: ()=>{
-        state.scrollController.animateTo(0, duration: Duration(seconds: 1), curve:Curves.easeInSine )
-      }, icon: Icon(Icons.arrow_upward,color: Colors.white,)),
+      child: IconButton(
+          onPressed: () => {
+                state.scrollController.animateTo(0,
+                    duration: Duration(seconds: 1), curve: Curves.easeInSine)
+              },
+          icon: Icon(
+            Icons.arrow_upward,
+            color: Colors.white,
+          )),
     ),
   );
 }

@@ -11,6 +11,7 @@ class DiaryListState extends MutableSource
   ScrollController scrollController =new ScrollController() ;
   int page;
   int count;
+  bool hasMore;
 
   @override
   DiaryListState clone() {
@@ -18,6 +19,7 @@ class DiaryListState extends MutableSource
       ..diaries = diaries
       ..page=page
       ..count=count
+      ..hasMore =true
       ..scrollController=scrollController
       ..refreshController = refreshController;
   }
@@ -41,6 +43,7 @@ DiaryListState initState(Map<String, dynamic> args) {
   return DiaryListState()
     ..refreshController = new RefreshController()
     ..page = 1
+    ..hasMore =true
     ..scrollController =new ScrollController()
     ..diaries =<DiaryItemState>[]
     ..count = 10;
