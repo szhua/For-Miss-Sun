@@ -2,5 +2,5 @@
 
 ForMissSun
 
-![样子](http://image-szhua.test.upcdn.net/ex.jpg)
+![样子](https://github.com/szhua/For-Miss-Sun/blob/master/ex.jpg?raw=true)
 
