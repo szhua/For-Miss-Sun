@@ -1,14 +1,12 @@
+import 'package:for_miss_sun/generated/json/base/json_convert_content.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'fileresponse.g.dart';
 
-@JsonSerializable()
-class Fileresponse {
-    Fileresponse();
-    num status;
+class FileResponse with JsonConvert<FileResponse> {
+
+    int status;
     String message;
-    String  data;
+    String data;
     
-    factory Fileresponse.fromJson(Map<String,dynamic> json) => _$FileresponseFromJson(json);
-    Map<String, dynamic> toJson() => _$FileresponseToJson(this);
+
 }

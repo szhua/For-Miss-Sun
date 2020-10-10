@@ -5,8 +5,10 @@ import 'package:for_miss_sun/routes/index.dart';
 import 'package:for_miss_sun/util/index.dart';
 import 'package:oktoast/oktoast.dart';
 
+import 'app.dart';
+
 void main() {
-  Global.init().then((value) => runApp(MyApp()));
+  Global.init().then((value) => runApp(createApp()));
 }
 
 class MyApp extends StatelessWidget {

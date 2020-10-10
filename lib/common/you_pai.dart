@@ -24,12 +24,12 @@ class YouPai {
 
   }
 
-  Future<Fileresponse> uploadFile(File file) async{
+  Future<FileResponse> uploadFile(File file) async{
      var postData = FormData.fromMap({
        "file": await MultipartFile.fromFile(file.path)
      });
      var r =  await dio.post('/s-file/addPhoto',data: postData);
-     return  Fileresponse.fromJson(r.data);
+     return  FileResponse().fromJson(r.data);
   }
 
 

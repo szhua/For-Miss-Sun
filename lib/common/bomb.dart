@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:for_miss_sun/models/index.dart';
 
 class BombApi {
+
   static String appkey = '9978d3967eb2807caca03e23d5adbb96';
   static String apiKey = 'e90ca06ac042fe14fedccfd7fdbb7a78';
 
@@ -31,13 +32,13 @@ class BombApi {
       'content':diary.content,
       'dary_img':diary.dary_img
     });
-    return Diary.fromJson(r.data);
+    return Diary().fromJson(r.data);
   }
 
   Future<Diary> getOne(String id ) async{
     BmobQuery query =new BmobQuery();
     var r = await query.queryObjectByTableName(id,'diary');
-    return Diary.fromJson(r);
+    return Diary().fromJson(r);
   }
 
 
@@ -46,7 +47,7 @@ class BombApi {
      query.order='-createdAt';
      query.limit=1;
      var r = await query.queryObjectsByTableName('diary');
-     return r.map((e) => Diary.fromJson(e)).toList().first;
+     return r.map((e) => Diary().fromJson(e)).toList().first;
   }
 
   Future<List<Diary>> getPageData({int page = 1,int count = 10} )async{
@@ -55,13 +56,13 @@ class BombApi {
     query.limit =count;
     query.skip = (page-1)*count;
     var r = await query.queryObjectsByTableName('diary');
-    return r.map((e) => Diary.fromJson(e)).toList();
+    return r.map((e) => Diary().fromJson(e)).toList();
   }
 
   ///查询一条数据
   Future<List<Diary>> querySingle() async {
-    BmobQuery bmobQuery = BmobQuery();
-    var r = await bmobQuery.queryObjectsByTableName('diary');
-    return r.map((e) => Diary.fromJson(e)).toList();
+    BmobQuery query = BmobQuery();
+    var r = await query.queryObjectsByTableName('diary');
+    return r.map((e) => Diary().fromJson(e)).toList();
   }
 }

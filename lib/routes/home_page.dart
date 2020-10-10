@@ -97,7 +97,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               )),
-        )), onWillPop: existSystem);
+        )),
+        onWillPop: existSystem);
   }
 
   DateTime _lastPressedAt; //上次点击时间

@@ -29,7 +29,7 @@ class _SlogoRouteState extends State<SlogoRoute> {
       var currentImage =imgs[DateTime.now().weekday-1];
       precacheImage(AssetImage(currentImage), context);
       Timer(Duration(seconds: 4),(){
-        Navigator.of(context).pushNamed('homePage');
+        Navigator.of(context).pushNamed('index_page');
       } );
     });
   }

@@ -1,10 +1,9 @@
-import 'package:json_annotation/json_annotation.dart';
 
-part 'diary.g.dart';
 
-@JsonSerializable()
-class Diary {
-    Diary();
+
+import 'package:for_miss_sun/generated/json/base/json_convert_content.dart';
+
+class Diary with JsonConvert<Diary> {
 
     String objectId;
     String content;
@@ -14,7 +13,5 @@ class Diary {
     String ACL;
     String name ;
 
-    
-    factory Diary.fromJson(Map<String,dynamic> json) => _$DiaryFromJson(json);
-    Map<String, dynamic> toJson() => _$DiaryToJson(this);
+
 }
