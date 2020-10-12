@@ -22,5 +22,4 @@ class DetailConnector extends ConnOp<IndexState,DetailState> with ReselectMixin<
     return DetailState()
       ..diary = state.diary;
   }
-
 }

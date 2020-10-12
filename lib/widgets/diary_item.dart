@@ -11,8 +11,6 @@ class DiaryItem extends StatefulWidget {
 
 class DiaryItemState extends State<DiaryItem> {
 
-
-
   Widget buildImage(){
    if(widget.diary.dary_img!=null&&widget.diary.dary_img.isNotEmpty){
      return Padding(padding:const EdgeInsets.all(10),child:

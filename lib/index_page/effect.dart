@@ -10,6 +10,7 @@ Effect<IndexState> buildEffect() {
   return combineEffects(<Object, Effect<IndexState>>{
     Lifecycle.initState:_init,
     IndexAction.toDiaryList:_toList,
+    IndexAction.toAdd:_toAdd
   });
 }
 
@@ -20,4 +21,6 @@ void _init(Action action, Context<IndexState> ctx) async {
 void _toList(Action action ,Context<IndexState> ctx) {
     Navigator.of(ctx.context).pushNamed('for_you_list');
 }
-
+void _toAdd(Action action ,Context<IndexState> ctx) {
+  Navigator.of(ctx.context).pushNamed('edit_page');
+}

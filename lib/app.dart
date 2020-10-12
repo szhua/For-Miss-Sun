@@ -1,17 +1,24 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action, Page;
+import 'package:for_miss_sun/detail_page/page.dart';
+import 'package:for_miss_sun/edit_page/page.dart';
 import 'package:for_miss_sun/index_page/page.dart';
 import 'package:for_miss_sun/routes/slogo_page.dart';
 import 'package:for_miss_sun/util/index.dart';
 import 'package:oktoast/oktoast.dart';
 
 import 'diary_list_page/page.dart';
+import 'slogan_page/page.dart';
 
 Widget createApp() {
+
   final AbstractRoutes routes = PageRoutes(
     pages: <String, Page<Object, dynamic>>{
       'index_page': IndexPage(),
-      'for_you_list':DiaryListPage()
+      'for_you_list':DiaryListPage(),
+      'edit_page':EditDiaryPage(),
+      'detail_page':DiaryDetailPage(),
+      'slogan_page':SloganPage()
     },
     visitor: (String path, Page<Object, dynamic> page) {
       page.enhancer.append(
@@ -56,7 +63,7 @@ Widget createApp() {
             return routes.buildPage(settings.name, settings.arguments);
           });
         },
-        home: SlogoRoute(),
+        home: routes.buildPage('slogan_page', null)
         // home: MyHomePage(title: 'For Miss-Sun'),
       ));
 }

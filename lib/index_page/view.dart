@@ -27,7 +27,9 @@ Widget buildView(IndexState state, Dispatch dispatch, ViewService viewService) {
           floatingActionButton: FloatingActionButton(
             mini: true,
             child: IconButton(
-              onPressed: () => {},
+              onPressed: ()  {
+                dispatch(IndexActionCreator.toAdd());
+              },
               icon: Icon(
                 Icons.keyboard,
                 color: Colors.white,
