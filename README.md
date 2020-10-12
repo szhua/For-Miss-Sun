@@ -1,6 +1,6 @@
 # for_miss_sun
 
-ForMissSun
+Fluuter   ForYou  欢迎品鉴
 
-![样子](https://github.com/szhua/For-Miss-Sun/blob/master/ex.jpg?raw=true)
+<img src="https://github.com/szhua/For-Miss-Sun/blob/master/ex.jpg?raw=true" alt="样子" style="zoom:25%;" />
 
