@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
 import 'package:for_miss_sun/common/index.dart';
+import 'package:for_miss_sun/index_page/action.dart';
 import 'package:for_miss_sun/models/diary.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:oktoast/oktoast.dart';
@@ -35,6 +36,7 @@ void _onSaveDiary(Action action, Context<EditDiaryState> ctx) async{
     if(diary!=null){
       showToast('上传成功');
       state.focusNode.unfocus();
+      ctx.broadcast(IndexActionCreator.refreshHomeData());
       Navigator.of(ctx.context).pop();
       Navigator.of(ctx.context).pop();
     }else{

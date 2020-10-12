@@ -1,8 +1,10 @@
 import 'dart:io';
 
+import 'package:data_plugin/bmob/bmob_dio.dart';
 import 'package:data_plugin/bmob/bmob_query.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:for_miss_sun/common/index.dart';
 import 'package:for_miss_sun/models/index.dart';
 
 class BombApi {
@@ -25,6 +27,10 @@ class BombApi {
   static void init() {}
 
 
+  Future<Diary> deleteOneDiary(Diary diary) async{
+
+  }
+
 
   Future<Diary> insertOneDiary(Diary diary) async {
     _options.headers[HttpHeaders.contentTypeHeader] = 'application/json';
@@ -33,6 +39,7 @@ class BombApi {
       'dary_img':diary.dary_img
     });
     return Diary().fromJson(r.data);
+    
   }
 
   Future<Diary> getOne(String id ) async{

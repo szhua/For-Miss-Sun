@@ -2,7 +2,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:for_miss_sun/diary_list_page/diary_item_component/state.dart';
 
 //TODO replace with your own action
-enum DiaryListAction { action ,onRefresh,refresh,onLoadMore,loadMore }
+enum DiaryListAction { action ,onRefresh,refresh,onLoadMore,loadMore ,onDelete,delete }
 
 class DiaryListActionCreator {
   static Action onAction() {
@@ -19,6 +19,10 @@ class DiaryListActionCreator {
   }
   static Action loadMore(List<DiaryItemState> items){
     return  Action(DiaryListAction.loadMore,payload: items);
+  }
+
+  static Action delete(DiaryItemState itemState){
+    return  Action(DiaryListAction.delete,payload: itemState);
   }
 
 }

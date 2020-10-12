@@ -1,6 +1,7 @@
 
 import 'package:fish_redux/fish_redux.dart';
 import 'package:for_miss_sun/common/bomb.dart';
+import 'package:for_miss_sun/common/event_bus.dart';
 import 'package:for_miss_sun/diary_list_page/diary_item_component/state.dart';
 import 'package:for_miss_sun/models/diary.dart';
 import 'action.dart';
@@ -10,11 +11,14 @@ Effect<DiaryListState> buildEffect() {
   return combineEffects(<Object, Effect<DiaryListState>>{
     DiaryListAction.onRefresh:_onRefresh,
     DiaryListAction.onLoadMore:_onLoadMore,
-    Lifecycle.initState:_onRefresh
+    Lifecycle.initState:_initState
   });
 }
 
 
+void _initState(Action action, Context<DiaryListState> ctx) {
+  _onRefresh(action, ctx);
+}
 
 void _onRefresh(Action action, Context<DiaryListState> ctx) async {
   ctx.state.hasMore =true ;
@@ -22,6 +26,7 @@ void _onRefresh(Action action, Context<DiaryListState> ctx) async {
   ctx.dispatch(DiaryListActionCreator.refresh(data.map((e) => DiaryItemState(diary: e)).toList()));
   ctx.state.refreshController.refreshCompleted();
 }
+
 void _onLoadMore(Action action, Context<DiaryListState> ctx) async {
   if(ctx.state.hasMore) {
     ctx.state.page++;

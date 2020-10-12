@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 
-
  void show(String msg, {duration = 2000}) {
   if (msg == null) {
     return;
@@ -14,9 +13,8 @@ import 'package:oktoast/oktoast.dart';
 }
 
 void  cancelToast() {
-  dismissAllToast();
+   dismissAllToast();
 }
-
 
 
 void showLoading(context, [String text]) {

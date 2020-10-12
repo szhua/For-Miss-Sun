@@ -15,7 +15,7 @@ void _initState(Action action, Context<SloganState> ctx) {
   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
     var currentImage =ctx.state.images[DateTime.now().weekday-1];
     precacheImage(AssetImage(currentImage), ctx.context);
-    ctx.dispatch(SloganActionCreator.setCurrentImg(currentImage));
+    //ctx.dispatch(SloganActionCreator.setCurrentImg(currentImage));
     Timer(Duration(seconds: 4),(){
       Navigator.of(ctx.context).pushNamed('index_page');
     } );

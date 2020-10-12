@@ -25,7 +25,12 @@ Widget buildView(
   }
 
   return InkWell(
-    onTap: () => dispatch(DiaryItemActionCreator.toDetail(state.diary.objectId)),
+    onLongPress: (){
+      dispatch(DiaryItemActionCreator.onDelete());
+    },
+    onTap: (){
+      dispatch(DiaryItemActionCreator.toDetail(state.diary.objectId));
+    },
     child: Padding(
       padding: const EdgeInsets.only(top: 8),
       child: Material(

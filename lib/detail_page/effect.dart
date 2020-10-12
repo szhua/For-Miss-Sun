@@ -11,5 +11,4 @@ Effect<DiaryDetailState> buildEffect() {
 
 void _initState(Action action, Context<DiaryDetailState> ctx) {
 
-
 }

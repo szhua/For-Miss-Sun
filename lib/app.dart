@@ -1,12 +1,11 @@
+import 'package:data_plugin/bmob/bmob.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action, Page;
 import 'package:for_miss_sun/detail_page/page.dart';
 import 'package:for_miss_sun/edit_page/page.dart';
 import 'package:for_miss_sun/index_page/page.dart';
-import 'package:for_miss_sun/routes/slogo_page.dart';
 import 'package:for_miss_sun/util/index.dart';
 import 'package:oktoast/oktoast.dart';
-
 import 'diary_list_page/page.dart';
 import 'slogan_page/page.dart';
 

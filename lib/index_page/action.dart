@@ -2,7 +2,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:for_miss_sun/models/diary.dart';
 
 
-enum IndexAction { initIndexData  , toDiaryList ,toAdd ,back}
+enum IndexAction { initIndexData  , toDiaryList ,toAdd ,back ,refreshHomeData}
 
 class IndexActionCreator {
 
@@ -17,6 +17,9 @@ class IndexActionCreator {
   }
   static Action  back(){
     return const Action(IndexAction.back);
+  }
+  static Action refreshHomeData(){
+    return const Action(IndexAction.refreshHomeData);
   }
 
 }
